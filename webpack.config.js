@@ -15,6 +15,9 @@ module.exports = {
     rules: [{
       test: /.tsx?$/,
       loader: 'babel-loader!ts-loader'
+    },{
+      test: /.css$/,
+      loader: 'style-loader!css-loader'
     }]
   },
   resolve: {

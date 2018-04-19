@@ -1,0 +1,12 @@
+@import '~antd/dist/antd.css';
+
+.xxxx{
+    width: 100%;
+    background-color: orange;
+    max-width: 800px;
+    margin: auto;
+}
+
+.header{
+    color: white;
+}
