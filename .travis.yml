@@ -1,0 +1,9 @@
+sudo: required
+language: node_js
+node_js:
+  - "10"
+branches:
+  only:
+    - master
+script:
+    - yarn run build
