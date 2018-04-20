@@ -1,0 +1,33 @@
+:root {
+    --headerColor:#7cbceb;
+    --bodyColor:#F5F5F5;
+    --todoColor:#1790ff;
+    --doingColor:#faad15;
+    --doneColor:#52c41a;
+}
+.todo{
+    background-color: var(--todoColor);
+    & .ant-checkbox-wrapper{
+        color: var(--todoColor);
+    }
+}
+.doing{
+    background-color: var(--doingColor);
+    & .ant-checkbox-wrapper{
+        color: var(--doingColor);
+    }
+}
+.done{
+    background-color: var(--doneColor);
+    & .ant-list-item{
+        color: var(--doneColor);
+    }
+}
+
+
+.search-col{
+    margin: 8px 0;
+}
+.ant-collapse-header{
+    color: var(--bodyColor)!important;
+}

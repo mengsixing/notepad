@@ -22,7 +22,23 @@
     color: var(--bodyColor);
     background-color: var(--headerColor);
 }
-
-.search-col{
-    margin: 8px 0;
+.logo {
+    line-height: 31px;
+    margin: 16px 28px 16px 0;
+    float: right;
+    text-align: right;
+    cursor: pointer;
+    font-size: 20px;
+  }
+.footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    & a{
+        color: var(--bodyColor);
+        text-decoration: underline;
+    }
 }
+
+

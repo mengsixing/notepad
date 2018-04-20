@@ -1,53 +1,29 @@
-import { Button, Checkbox, Col, Collapse, Input, Layout, List, Row } from 'antd';
+import { Button, Checkbox, Col, Collapse, Icon, Input, Layout, List, Row } from 'antd';
 import * as React from 'react';
 import './App.css';
 const { Search } = Input;
 const { Panel } = Collapse;
-const {Header, Content, Footer} = Layout;
+const { Header, Content, Footer } = Layout;
+import TodoList from './Todolist';
 
 class App extends React.Component {
+  public gotoGithub() {
+    location.href = 'https://github.com/yhlben/notepad';
+  }
   public render() {
     return (<div>
       <Layout className='main'>
-        <Header className='header'>头部</Header>
+        <Header className='header'>记事本
+          <div className='logo'>
+            <Icon type='github' onClick={this.gotoGithub} />
+          </div>
+        </Header>
         <Content className='container'>
-          <Row gutter={8}>
-            <Col span={24} className='search-col'>
-              <Search placeholder='输入待办事项' enterButton='添加' />
-            </Col>
-            <Col xs={24} sm={24} md={24} lg={8} xl={8}>
-              <Collapse defaultActiveKey={['1']}>
-                <Panel header='todo' key='1'>
-                  <List
-                    dataSource={['item1', 'itmem2', 'zxcasfnoqnwdo年后手动']}
-                    renderItem={(item) => (<List.Item><Checkbox >{item}</Checkbox> </List.Item>)}
-                  />
-                </Panel>
-              </Collapse>
-            </Col>
-            <Col xs={24} sm={24} md={24} lg={8} xl={8}>
-              <Collapse defaultActiveKey={['1']}>
-                <Panel header='doing' key='1'>
-                  <List
-                    dataSource={['item1', 'itmem2', 'zxcasfnoqnwdo年后手动']}
-                    renderItem={(item) => (<List.Item><Checkbox >{item}</Checkbox> </List.Item>)}
-                  />
-                </Panel>
-              </Collapse>
-            </Col>
-            <Col xs={24} sm={24} md={24} lg={8} xl={8}>
-              <Collapse defaultActiveKey={['1']}>
-                <Panel header='done' key='1'>
-                  <List
-                    dataSource={['item1', 'itmem2', 'zxcasfnoqnwdo年后手动']}
-                    renderItem={(item) => (<List.Item><Checkbox >{item}</Checkbox> </List.Item>)}
-                  />
-                </Panel>
-              </Collapse>
-            </Col>
-          </Row>
+          <TodoList></TodoList>
         </Content>
-        <Footer className='footer' style={{ position: 'fixed', width: '100%', bottom: '0' }}>尾部</Footer>
+        <Footer className='footer'>
+          Created by <a target='_blank' href='https://github.com/yhlben'>yhlben</a> ©2018
+        </Footer>
       </Layout>
 
     </div>);
