@@ -6,4 +6,4 @@ branches:
   only:
     - master
 script:
-    - yarn run build
+    - npm run build

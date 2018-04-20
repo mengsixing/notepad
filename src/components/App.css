@@ -1,12 +1,28 @@
 @import '~antd/dist/antd.css';
 
-.xxxx{
-    width: 100%;
-    background-color: orange;
-    max-width: 800px;
-    margin: auto;
+:root {
+    --headerColor:#7cbceb;
+    --bodyColor:#F5F5F5;
+    --todoColor:#1790ff;
+    --doingColor:#faad15;
+    --doneColor:#52c41a;
 }
 
-.header{
-    color: white;
+.main,body{
+    background-color: var(--bodyColor);
+}
+.container{
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    height: 100%;
+}
+
+.header,.footer{
+    color: var(--bodyColor);
+    background-color: var(--headerColor);
+}
+
+.search-col{
+    margin: 8px 0;
 }

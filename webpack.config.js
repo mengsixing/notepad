@@ -17,7 +17,7 @@ module.exports = {
       loader: 'babel-loader!ts-loader'
     },{
       test: /.css$/,
-      loader: 'style-loader!css-loader'
+      loader: 'style-loader!css-loader!postcss-loader'
     }]
   },
   resolve: {
