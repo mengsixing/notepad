@@ -12,7 +12,7 @@ class TodoList extends React.Component {
               <Search placeholder='输入待办事项' enterButton='添加' />
             </Col>
             <Col xs={24} sm={24} md={24} lg={8} xl={8}>
-              <Collapse defaultActiveKey={['1']} className="todo">
+              <Collapse defaultActiveKey={['1']} className='todo'>
                 <Panel header='todo' key='1'>
                   <List
                     dataSource={['item1', 'itmem2', 'zxcasfnoqnwdo年后手动']}
@@ -22,7 +22,7 @@ class TodoList extends React.Component {
               </Collapse>
             </Col>
             <Col xs={24} sm={24} md={24} lg={8} xl={8}>
-              <Collapse defaultActiveKey={['1']} className="doing">
+              <Collapse defaultActiveKey={['1']} className='doing'>
                 <Panel header='doing' key='1'>
                   <List
                     dataSource={['item1', 'itmem2', 'zxcasfnoqnwdo年后手动']}
@@ -32,7 +32,7 @@ class TodoList extends React.Component {
               </Collapse>
             </Col>
             <Col xs={24} sm={24} md={24} lg={8} xl={8}>
-              <Collapse defaultActiveKey={['1']} className="done">
+              <Collapse defaultActiveKey={['1']} className='done'>
                 <Panel header='done' key='1'>
                   <List
                     dataSource={['item1', 'itmem2', 'zxcasfnoqnwdo年后手动']}
