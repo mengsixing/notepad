@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "precommit":"npm run fix",
-    "prebuild": "npm run lint",
+    "precommit":"yarn run fix",
+    "prebuild": "yarn run lint",
     "build": "webpack",
     "lint": "tslint --project .",
     "fix": "tslint --project . --fix",
