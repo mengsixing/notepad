@@ -2,7 +2,7 @@
 
 记事本
 
-[![Build Status](https://www.travis-ci.org/yhlben/notepad.svg?branch=master)](https://www.travis-ci.org/yhlben/notepad)(https://www.travis-ci.org/yhlben/cdfang-spider)
+[![Build Status](https://www.travis-ci.org/yhlben/notepad.svg?branch=master)](https://www.travis-ci.org/yhlben/notepad)
 
 
 ## 特点
