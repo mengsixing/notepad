@@ -13,9 +13,10 @@
 }
 .container{
     width: 100%;
-    max-width: 800px;
+    max-width: 980px;
+    padding: 0 10px;
     margin: auto;
-    height: 100%;
+    padding-bottom: 70px;
 }
 
 .header,.footer{

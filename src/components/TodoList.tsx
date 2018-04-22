@@ -1,7 +1,7 @@
 import { Checkbox, Col, Collapse, Input, List, message, Row } from 'antd';
 import * as React from 'react';
 import { ItodoItem } from '../interfaces/index';
-import { isInArray, removeItems } from '../utils/index';
+import { createNowDateString, isInArray, removeItems } from '../utils/index';
 const { Search } = Input;
 const { Panel } = Collapse;
 import './TodoList.css';
@@ -14,8 +14,8 @@ class TodoList extends React.Component {
     selectedTodoList: [],
   };
 
-  constructor() {
-    super(null);
+  constructor(defaultProps) {
+    super(defaultProps);
     this.addTodo = this.addTodo.bind(this);
     this.changetodoList = this.changetodoList.bind(this);
   }
@@ -23,11 +23,11 @@ class TodoList extends React.Component {
     if (item.length === 0) {
       return;
     }
-    if (isInArray(this.state.todoList, item)) {
+    if (isInArray(this.state.todoList, item, createNowDateString())) {
       message.error('该任务已存在');
     } else {
       const todoItem: ItodoItem = {
-        text: item, date: new Date().toLocaleDateString(),
+        text: item, date: createNowDateString(),
       };
       this.setState({
         todoList: [...this.state.todoList, todoItem],
@@ -36,23 +36,27 @@ class TodoList extends React.Component {
     }
   }
   public changetodoList(checkedArray: string[]) {
+    const checkedTodoItem = this.state.todoList.filter((item) => {
+      return item.text === checkedArray[0];
+    });
     this.setState({
-      doingList: checkedArray.concat([...this.state.doingList]),
+      doingList: checkedTodoItem.concat([...this.state.doingList]),
       todoList: removeItems(this.state.todoList, checkedArray),
     });
   }
   public changedoingList(checkedArray: string[]): void {
-    alert(checkedArray);
+    // tslint:disable-next-line:no-console
+    console.warn(checkedArray);
   }
   public render() {
     return (
       <Row gutter={8}>
-        <Col span={24} className='search-col'>
-          <Search placeholder='输入待办事项' enterButton='添加' onSearch={this.addTodo} />
+        <Col span={24} className="search-col">
+          <Search placeholder="输入待办事项" enterButton="添加" onSearch={this.addTodo} />
         </Col>
         <Col xs={24} sm={24} md={24} lg={8} xl={8}>
-          <Collapse defaultActiveKey={['1']} className='todo'>
-            <Panel header='todo' key='1'>
+          <Collapse defaultActiveKey={['1']} className="todo">
+            <Panel header="todo" key="1">
               <Checkbox.Group onChange={this.changetodoList} value={this.state.selectedTodoList}>
                 <List
                   dataSource={this.state.todoList}
@@ -65,20 +69,26 @@ class TodoList extends React.Component {
           </Collapse>
         </Col>
         <Col xs={24} sm={24} md={24} lg={8} xl={8}>
-          <Collapse defaultActiveKey={['1']} className='doing'>
-            <Panel header='doing' key='1'>
+          <Collapse defaultActiveKey={['1']} className="doing">
+            <Panel header="doing" key="1">
               <Checkbox.Group onChange={this.changedoingList}>
                 <List
                   dataSource={this.state.doingList}
-                  renderItem={(item) => (<List.Item><Checkbox value={item}>{item}</Checkbox> </List.Item>)}
+                  renderItem={
+                    (item) => (<List.Item>
+                      <Checkbox value={item.text + item.date}>
+                        {item.text}<span className="checkbox-date">({item.date})</span>
+                      </Checkbox>
+                      </List.Item>)
+                  }
                 />
               </Checkbox.Group>
             </Panel>
           </Collapse>
         </Col>
         <Col xs={24} sm={24} md={24} lg={8} xl={8}>
-          <Collapse defaultActiveKey={['1']} className='done'>
-            <Panel header='done' key='1'>
+          <Collapse defaultActiveKey={['1']} className="done">
+            <Panel header="done" key="1">
               <List
                 dataSource={this.state.doneList}
                 renderItem={(item) => (<List.Item>{item}</List.Item>)}

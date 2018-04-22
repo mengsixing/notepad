@@ -4,7 +4,7 @@ import './App.css';
 const { Search } = Input;
 const { Panel } = Collapse;
 const { Header, Content, Footer } = Layout;
-import TodoList from './Todolist';
+import TodoList from './TodoList';
 
 class App extends React.Component {
   public gotoGithub() {
@@ -12,17 +12,17 @@ class App extends React.Component {
   }
   public render() {
     return (<div>
-      <Layout className='main'>
-        <Header className='header'>记事本
-          <div className='logo'>
-            <Icon type='github' onClick={this.gotoGithub} />
+      <Layout className="main">
+        <Header className="header">记事本
+          <div className="logo">
+            <Icon type="github" onClick={this.gotoGithub} />
           </div>
         </Header>
-        <Content className='container'>
+        <Content className="container">
           <TodoList></TodoList>
         </Content>
-        <Footer className='footer'>
-          Created by <a target='_blank' href='https://github.com/yhlben'>yhlben</a> ©2018
+        <Footer className="footer">
+          Created by <a target="_blank" href="https://github.com/yhlben">yhlben</a> ©2018
         </Footer>
       </Layout>
 

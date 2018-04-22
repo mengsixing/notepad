@@ -7,20 +7,46 @@
 }
 .todo{
     background-color: var(--todoColor);
+    margin-bottom:10px;
     & .ant-checkbox-wrapper{
         color: var(--todoColor);
+        word-break:break-all;
+    }
+    & .ant-checkbox-group{
+        width: 100%;
+    }
+    & .ant-list-empty-text{
+        text-align: left;
     }
 }
 .doing{
     background-color: var(--doingColor);
+    margin-bottom:10px;
     & .ant-checkbox-wrapper{
         color: var(--doingColor);
+        word-break:break-all;
+    }
+    & .ant-checkbox-group{
+        width: 100%;
+    }
+    & .checkbox-date{
+        margin-left: 10px;
+    }
+    & .ant-list-empty-text{
+        text-align: left;
     }
 }
 .done{
     background-color: var(--doneColor);
+    margin-bottom:10px;
     & .ant-list-item{
         color: var(--doneColor);
+    }
+    & .ant-checkbox-group{
+        width: 100%;
+    }
+    & .ant-list-empty-text{
+        text-align: left;
     }
 }
 
