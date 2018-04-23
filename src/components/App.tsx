@@ -13,11 +13,19 @@ class App extends React.Component {
   public render() {
     return (<div>
       <Layout className="main">
-        <Header className="header">记事本
+        <Row className="header">
+          <Col
+          xs={{ span: 22, offset: 1 }}
+          sm={{ span: 22, offset: 1 }}
+          md={{ span: 22, offset: 1 }}
+          lg={{ span: 20, offset: 2 }}
+          xl={{ span: 20, offset: 2 }}>
+          记事本
           <div className="logo">
             <Icon type="github" onClick={this.gotoGithub} />
           </div>
-        </Header>
+          </Col>
+        </Row>
         <Content className="container">
           <TodoList></TodoList>
         </Content>

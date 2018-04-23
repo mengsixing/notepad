@@ -10,4 +10,5 @@ export interface ItodoState {
     doingList: ItodoItem[];
     doneList: ItodoItem[];
     selectedTodoList: string[];
+    selectedDoingList: string[];
 }

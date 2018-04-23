@@ -23,14 +23,19 @@
     color: var(--bodyColor);
     background-color: var(--headerColor);
 }
-.logo {
-    line-height: 31px;
-    margin: 16px 28px 16px 0;
-    float: right;
-    text-align: right;
-    cursor: pointer;
-    font-size: 20px;
-  }
+
+.header{
+    line-height: 63px;
+    & .logo {
+        line-height: 31px;
+        margin: 16px 0;
+        float: right;
+        text-align: right;
+        cursor: pointer;
+        font-size: 20px;
+      }
+}
+
 .footer{
     position: fixed;
     width: 100%;
@@ -40,6 +45,11 @@
         color: var(--bodyColor);
         text-decoration: underline;
     }
+}
+
+
+.ant-layout-header{
+    padding: 0 10px;
 }
 
 

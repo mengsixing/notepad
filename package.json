@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "precommit":"yarn run fix",
+    "precommit": "yarn run fix",
     "prebuild": "yarn run lint",
     "build": "webpack",
     "lint": "tslint --project .",
@@ -34,6 +34,7 @@
     "@types/react": "^16.3.11",
     "@types/react-dom": "^16.0.5",
     "antd": "^3.4.1",
+    "localforage": "^1.7.1",
     "postcss-loader": "^2.1.4",
     "react": "^16.3.2",
     "react-dom": "^16.3.2"

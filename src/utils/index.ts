@@ -5,9 +5,8 @@ export function createNowDateString(): string {
 }
 
 export function removeItems(allArray: ItodoItem[], partArray: string[]): ItodoItem[] {
-    const partArrayString = partArray.join();
     return allArray.filter((item) => {
-        return partArrayString.indexOf(item.text) < 0;
+        return partArray.indexOf(item.title) < 0;
     });
 }
 
