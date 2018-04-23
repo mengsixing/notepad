@@ -1,13 +1,13 @@
 import { Checkbox, Col, Collapse, Input, List, message, Row } from 'antd';
 import * as React from 'react';
-import { ItodoItem } from '../interfaces/index';
+import { ItodoItem, ItodoState } from '../interfaces/index';
 import { createNowDateString, isInArray, removeItems } from '../utils/index';
 const { Search } = Input;
 const { Panel } = Collapse;
 import './TodoList.css';
 
 class TodoList extends React.Component {
-  public state = {
+  public state: ItodoState = {
     todoList: [],
     doingList: [],
     doneList: [],
@@ -23,11 +23,11 @@ class TodoList extends React.Component {
     if (item.length === 0) {
       return;
     }
-    if (isInArray(this.state.todoList, item, createNowDateString())) {
+    if (isInArray(this.state.todoList, item)) {
       message.error('该任务已存在');
     } else {
       const todoItem: ItodoItem = {
-        text: item, date: createNowDateString(),
+        title: item, createDate: new Date(),
       };
       this.setState({
         todoList: [...this.state.todoList, todoItem],
@@ -37,7 +37,7 @@ class TodoList extends React.Component {
   }
   public changetodoList(checkedArray: string[]) {
     const checkedTodoItem = this.state.todoList.filter((item) => {
-      return item.text === checkedArray[0];
+      return item.title === checkedArray[0];
     });
     this.setState({
       doingList: checkedTodoItem.concat([...this.state.doingList]),
@@ -47,6 +47,13 @@ class TodoList extends React.Component {
   public changedoingList(checkedArray: string[]): void {
     // tslint:disable-next-line:no-console
     console.warn(checkedArray);
+    const checkedDoingItem = this.state.doingList.filter((item) => {
+      return item.text === checkedArray[0];
+    });
+    this.setState({
+      doneList: checkedDoingItem.concat([...this.state.doneList]),
+      todoList: removeItems(this.state.doingList, checkedArray),
+    });
   }
   public render() {
     return (
@@ -76,8 +83,8 @@ class TodoList extends React.Component {
                   dataSource={this.state.doingList}
                   renderItem={
                     (item) => (<List.Item>
-                      <Checkbox value={item.text + item.date}>
-                        {item.text}<span className="checkbox-date">({item.date})</span>
+                      <Checkbox value={item.text}>
+                        {item.text}
                       </Checkbox>
                       </List.Item>)
                   }

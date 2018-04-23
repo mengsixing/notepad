@@ -1,5 +1,13 @@
 export interface ItodoItem {
-    text: string;
-    date: string;
-    finishDate?: string;
+    title: string;
+    createDate: Date;
+    startDate?: Date;
+    finishDate?: Date;
+}
+
+export interface ItodoState {
+    todoList: ItodoItem[];
+    doingList: ItodoItem[];
+    doneList: ItodoItem[];
+    selectedTodoList: string[];
 }

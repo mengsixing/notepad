@@ -11,10 +11,10 @@ export function removeItems(allArray: ItodoItem[], partArray: string[]): ItodoIt
     });
 }
 
-export function isInArray(array: ItodoItem[], text: string, date: string): boolean {
+export function isInArray(array: ItodoItem[], text: string): boolean {
     let result = false;
     array.forEach((item) => {
-        if (item.text === text && item.date === date) {
+        if (item.title === text) {
             result = true;
         }
     });
