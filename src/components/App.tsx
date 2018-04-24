@@ -5,10 +5,23 @@ const { Search } = Input;
 const { Panel } = Collapse;
 const { Header, Content, Footer } = Layout;
 import TodoList from './TodoList';
+import SettingPanel from './SettingPanel';
 
 class App extends React.Component {
+  public state = {
+    showPanel: false,
+  };
+  constructor(defaultProps) {
+    super(defaultProps);
+    this.changeSettingPanel = this.changeSettingPanel.bind(this);
+  }
   public gotoGithub() {
     location.href = 'https://github.com/yhlben/notepad';
+  }
+  public changeSettingPanel() {
+    this.setState({
+      showPanel: !this.state.showPanel,
+    });
   }
   public render() {
     return (<div>
@@ -24,10 +37,14 @@ class App extends React.Component {
           <div className="logo">
             <Icon type="github" onClick={this.gotoGithub} />
           </div>
+          <div className="setting">
+            <Icon type={this.state.showPanel ? 'menu-unfold' : 'menu-fold'} onClick={this.changeSettingPanel} />
+          </div>
           </Col>
         </Row>
         <Content className="container">
           <TodoList></TodoList>
+          <SettingPanel showPanel={this.state.showPanel}></SettingPanel>
         </Content>
         <Footer className="footer">
           Created by <a target="_blank" href="https://github.com/yhlben">yhlben</a> ©2018

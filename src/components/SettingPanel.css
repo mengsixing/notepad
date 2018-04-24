@@ -1,0 +1,34 @@
+:root {
+    --headerColor:#7cbceb;
+    --bodyColor:#F5F5F5;
+    --todoColor:#1790ff;
+    --doingColor:#faad15;
+    --doneColor:#52c41a;
+}
+
+.setting-panel{
+    position: fixed;
+    left: 0;
+    top: 70px;
+    bottom:70px;
+    z-index:1;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translateX(-250px);
+    transition: transform .3s;
+    &.show{
+        transform: translateX(0);
+    }
+    &>.setting-panel-item{
+        text-align:center;
+        margin-top:20px;
+        &:first-child{
+            margin-top:50px;
+        }
+        &>.setting-panel-item_button{
+            background-color: var(--headerColor);
+            color:var(--bodyColor);
+            border:none;
+        }
+    }
+}
