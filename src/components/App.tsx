@@ -4,8 +4,8 @@ import './App.css';
 const { Search } = Input;
 const { Panel } = Collapse;
 const { Header, Content, Footer } = Layout;
-import TodoList from './TodoList';
 import SettingPanel from './SettingPanel';
+import TodoList from './TodoList';
 
 class App extends React.Component {
   public state = {
