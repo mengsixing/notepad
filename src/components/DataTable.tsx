@@ -1,6 +1,6 @@
 import { Table } from 'antd';
-import * as React from 'react';
 import * as localforage from 'localforage';
+import * as React from 'react';
 import { IdataTable } from '../interfaces/index';
 
 const columns = [{
