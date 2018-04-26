@@ -19,3 +19,8 @@ export interface ItodoState {
 export interface ISettingPanel {
     showPanel: boolean;
 }
+
+// DataTable组件state
+export interface IdataTable {
+    dataSource: ItodoItem[];
+}
