@@ -1,11 +1,17 @@
 import { Checkbox, Col, Collapse, Input, List, message, Row } from 'antd';
 import * as localforage from 'localforage';
 import * as React from 'react';
-import { ItodoItem, ItodoState } from '../interfaces/index';
+import { ItodoItem, ItodoList } from '../interfaces/index';
 import { createNowDateString, isInArray, removeItems } from '../utils/index';
 const { Search } = Input;
 const { Panel } = Collapse;
 import './TodoList.css';
+
+// TodoList组件state
+interface ItodoState extends ItodoList {
+  selectedTodoList: string[];
+  selectedDoingList: string[];
+}
 
 class TodoList extends React.Component {
   public state: ItodoState = {

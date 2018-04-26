@@ -3,11 +3,8 @@ import * as React from 'react';
 import { ISettingPanel } from '../interfaces/index';
 import './SettingPanel.css';
 
-class SettingPanel extends React.Component {
-    public props: ISettingPanel = {
-        showPanel: false,
-    };
-    constructor(props: ISettingPanel) {
+class SettingPanel extends React.Component<ISettingPanel> {
+    constructor(props) {
         super(props);
     }
     public render() {
