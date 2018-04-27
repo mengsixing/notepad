@@ -1,6 +1,6 @@
 import { ItodoItem } from '../interfaces/index';
 
-export function createNowDateString(): string {
+export function createDateString(date: Date): string {
     return new Date().toLocaleDateString().replace(/\//g, '-');
 }
 

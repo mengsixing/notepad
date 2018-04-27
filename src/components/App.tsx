@@ -8,9 +8,12 @@ import DataTable from './DataTable';
 import SettingPanel from './SettingPanel';
 import TodoList from './TodoList';
 
+import {ThemeContext} from '../context/index';
+
 class App extends React.Component {
   public state = {
     showPanel: false,
+    showTable: false,
   };
   constructor(defaultProps) {
     super(defaultProps);
@@ -25,7 +28,9 @@ class App extends React.Component {
     });
   }
   public render() {
-    return (<div>
+    return (
+      <ThemeContext.Provider value="test">
+    <div>
       <Layout className="main">
         <Row className="header">
           <Col
@@ -53,7 +58,9 @@ class App extends React.Component {
         </Footer>
       </Layout>
 
-    </div>);
+    </div>
+    </ThemeContext.Provider>
+    );
   }
 }
 
