@@ -42,6 +42,10 @@ class DataTable extends React.Component<any, IdataTable> {
         super(defaultProps);
         localforage.getItem('todolist_state').then((state: ItodoList) => {
             const allData = [...state.doingList, ...state.todoList, ...state.doneList];
+            const dataSource = allData.map((item, index) => {
+                return { ...item, key: index };
+            });
+            this.state.dataSource = dataSource;
             // this.state.dataSource = [{
             //     title: '胡彦斌',
             //     createDate: '2010-10-10',
@@ -55,17 +59,17 @@ class DataTable extends React.Component<any, IdataTable> {
             // }];
             // console.log('allData', allData);
         });
-        this.state.dataSource = [{
-            title: '胡彦斌',
-            createDate: '2010-10-10',
-            startDate: '2010-10-10',
-            finishDate: '2010-10-10',
-        }, {
-            title: '胡彦祖',
-            createDate: '2010-10-10',
-            startDate: '2010-10-10',
-            finishDate: '2010-10-10',
-        }];
+        // this.state.dataSource = [{
+        //     title: '胡彦斌',
+        //     createDate: '2010-10-10',
+        //     startDate: '2010-10-10',
+        //     finishDate: '2010-10-10',
+        // }, {
+        //     title: '胡彦祖',
+        //     createDate: '2010-10-10',
+        //     startDate: '2010-10-10',
+        //     finishDate: '2010-10-10',
+        // }];
     }
     public render() {
         return (<div className="data-table">
