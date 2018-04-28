@@ -5,7 +5,7 @@ import { ItodoItem, ItodoList } from '../interfaces/index';
 import { createDateString } from '../utils/index';
 import './DataTable.css';
 
-import { ThemeContext } from '../context/index';
+import { AppContext } from '../context/index';
 
 interface IdataTableItem {
     key: string;
@@ -43,8 +43,11 @@ class DataTable extends React.Component<any, IdataTable> {
     };
     constructor(defaultProps) {
         super(defaultProps);
-        localforage.getItem('todolist_state').then((state: ItodoList) => {
-            const allData = [...state.doingList, ...state.todoList, ...state.doneList];
+        localforage.getItem('todolist_state').then((state?: ItodoList) => {
+            let allData = [];
+            if (state) {
+                allData = [...state.doingList, ...state.todoList, ...state.doneList];
+            }
             const dataSource = [];
             for (let i = 0; i < allData.length; i++) {
                 dataSource.push({
@@ -63,12 +66,15 @@ class DataTable extends React.Component<any, IdataTable> {
     public render() {
         return (<div className="data-table">
             <Table dataSource={this.state.dataSource} columns={columns} bordered />
-            <ThemeContext.Consumer>
-                { (theme) => {  return(
-                    theme
-                ); }
+            <AppContext.Consumer>
+                {(theme) => {
+                    theme = 'nihao';
+                    return (
+                        <div>{theme + ''}</div>
+                    );
                 }
-            </ThemeContext.Consumer>
+                }
+            </AppContext.Consumer>
         </div>);
     }
 }

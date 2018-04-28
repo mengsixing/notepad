@@ -5,6 +5,7 @@ import { ItodoItem, ItodoList } from '../interfaces/index';
 import { createDateString, isInArray, removeItems } from '../utils/index';
 const { Search } = Input;
 const { Panel } = Collapse;
+import { AppContext } from '../context/index';
 import './TodoList.css';
 
 // TodoList组件state
@@ -129,6 +130,14 @@ class TodoList extends React.Component {
             </Panel>
           </Collapse>
         </Col>
+        <AppContext.Consumer>
+                {(theme) => {
+                    return (
+                        <div>{theme + 'zheshiTodolis'}</div>
+                    );
+                }
+                }
+            </AppContext.Consumer>
       </Row>
     );
   }

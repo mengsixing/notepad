@@ -1,2 +1,2 @@
 import * as React from 'react';
-export const ThemeContext = React.createContext('light');
+export const AppContext = React.createContext();
