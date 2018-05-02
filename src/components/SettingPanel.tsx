@@ -51,7 +51,7 @@ class SettingPanel extends React.Component<ISettingPanel> {
                 {({ toggleContent }) => {
                     return (
                         <div className={this.props.showPanel ? 'setting-panel show' : 'setting-panel'}>
-                            <div className="setting-panel-item"><Button className="setting-panel-item_button" onClick={toggleContent.call(this, 1)}>数据统计</Button></div>
+                            <div className="setting-panel-item"><Button className="setting-panel-item_button" onClick={toggleContent}>数据统计</Button></div>
                             <div className="setting-panel-item"><Button className="setting-panel-item_button" onClick={this.downloadData}>下载数据</Button></div>
                             <div className="setting-panel-item"><Button className="setting-panel-item_button">导入数据</Button></div>
                             <div className="setting-panel-item"><Button className="setting-panel-item_button" onClick={this.clearData}>清空数据</Button></div>
