@@ -14,6 +14,7 @@ class App extends React.Component {
   public state = {
     showPanel: false,
     showTable: false,
+    toggleTable: this.toggleTable.bind(this),
   };
   constructor(defaultProps) {
     super(defaultProps);
@@ -27,9 +28,14 @@ class App extends React.Component {
       showPanel: !this.state.showPanel,
     });
   }
+  public toggleTable() {
+    this.setState({
+      showTable: !this.state.showTable,
+    });
+  }
   public render() {
     return (
-      <AppContext.Provider value={this.state.showTable}>
+      <AppContext.Provider value={this.state}>
         <div>
           <Layout className="main">
             <Row className="header">
@@ -40,7 +46,7 @@ class App extends React.Component {
                 lg={{ span: 20, offset: 2 }}
                 xl={{ span: 20, offset: 2 }}>
                 记事本
-          <div className="logo">
+              <div className="logo">
                   <Icon type="github" onClick={this.gotoGithub} />
                 </div>
                 <div className="setting">
@@ -49,15 +55,20 @@ class App extends React.Component {
               </Col>
             </Row>
             <Content className="container">
-              <TodoList></TodoList>
-              <DataTable></DataTable>
+              <AppContext.Consumer>
+                {({ showTable }) => {
+                  return (
+                    showTable ? <DataTable></DataTable> : <TodoList></TodoList>
+                  );
+                }
+                }
+              </AppContext.Consumer>
               <SettingPanel showPanel={this.state.showPanel}></SettingPanel>
             </Content>
             <Footer className="footer">
               Created by <a target="_blank" href="https://github.com/yhlben">yhlben</a> ©2018
         </Footer>
           </Layout>
-
         </div>
       </AppContext.Provider>
     );

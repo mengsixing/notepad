@@ -5,8 +5,6 @@ import { ItodoItem, ItodoList } from '../interfaces/index';
 import { createDateString } from '../utils/index';
 import './DataTable.css';
 
-import { AppContext } from '../context/index';
-
 interface IdataTableItem {
     key: string;
     title: string;
@@ -66,15 +64,6 @@ class DataTable extends React.Component<any, IdataTable> {
     public render() {
         return (<div className="data-table">
             <Table dataSource={this.state.dataSource} columns={columns} bordered />
-            <AppContext.Consumer>
-                {(theme) => {
-                    theme = 'nihao';
-                    return (
-                        <div>{theme + ''}</div>
-                    );
-                }
-                }
-            </AppContext.Consumer>
         </div>);
     }
 }

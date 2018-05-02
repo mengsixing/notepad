@@ -133,7 +133,7 @@ class TodoList extends React.Component {
         <AppContext.Consumer>
                 {(theme) => {
                     return (
-                        <div>{theme + 'zheshiTodolis'}</div>
+                        <div>{theme.showTable + 'zheshiTodolis'}</div>
                     );
                 }
                 }
