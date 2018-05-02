@@ -14,8 +14,10 @@ class SettingPanel extends React.Component<ISettingPanel> {
         this.clearData = this.clearData.bind(this);
         this.confirmClear = this.confirmClear.bind(this);
         this.cancelClear = this.cancelClear.bind(this);
+        this.downloadData = this.downloadData.bind(this);
     }
-    public clearData() {
+    public clearData(event) {
+        event.preventDefault();
         this.setState({
             showModal: true,
         });
@@ -26,6 +28,12 @@ class SettingPanel extends React.Component<ISettingPanel> {
             todoList: [],
             doingList: [],
             doneList: [],
+        });
+        this.props.dataTableRef.setState({
+            dataSource: [],
+        });
+        this.setState({
+            showModal: false,
         });
     }
     public cancelClear() {
@@ -48,12 +56,12 @@ class SettingPanel extends React.Component<ISettingPanel> {
     public render() {
         return (
             <AppContext.Consumer>
-                {({ toggleContent }) => {
+                {({toggleContent}) => {
                     return (
-                        <div className={this.props.showPanel ? 'setting-panel show' : 'setting-panel'}>
-                            <div className="setting-panel-item"><Button className="setting-panel-item_button" onClick={toggleContent}>数据统计</Button></div>
+                        <div className={this.props.showPanel ? 'setting-panel show' : 'setting-panel'} onClick={toggleContent}>
+                            <div className="setting-panel-item"><Button className="setting-panel-item_button" onClick={toggleContent.bind(this.context, 1)}>数据统计</Button></div>
                             <div className="setting-panel-item"><Button className="setting-panel-item_button" onClick={this.downloadData}>下载数据</Button></div>
-                            <div className="setting-panel-item"><Button className="setting-panel-item_button">导入数据</Button></div>
+                            <div className="setting-panel-item"><Button className="setting-panel-item_button" onClick={toggleContent.bind(this.context, 2)}>导入数据</Button></div>
                             <div className="setting-panel-item"><Button className="setting-panel-item_button" onClick={this.clearData}>清空数据</Button></div>
                             <Modal
                                 title="提示"

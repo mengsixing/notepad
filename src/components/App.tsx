@@ -7,12 +7,13 @@ const { Header, Content, Footer } = Layout;
 import DataTable from './DataTable';
 import SettingPanel from './SettingPanel';
 import TodoList from './TodoList';
+import UploadData from './UploadData';
 
 import { AppContext } from '../context/index';
 
 class App extends React.Component {
   public dataTableRef = React.createRef();
-  public textInput = React.createRef();
+  public todoListRef = React.createRef();
   public state = {
     showPanel: false,
     showTable: false,
@@ -23,8 +24,11 @@ class App extends React.Component {
     super(props);
     this.changeSettingPanel = this.changeSettingPanel.bind(this);
   }
-  public setTextInputRef = (element) => {
-    this.textInput = element;
+  public setDataTableRef = (element) => {
+    this.dataTableRef = element;
+  }
+  public setTodoListRef = (element) => {
+    this.todoListRef = element;
   }
   public gotoGithub() {
     location.href = 'https://github.com/yhlben/notepad';
@@ -34,9 +38,15 @@ class App extends React.Component {
       showPanel: !this.state.showPanel,
     });
   }
-  public toggleContent(type = 0) {
+  public toggleContent(type, e) {
+    if (arguments.length === 1) {
+      type.stopPropagation();
+    } else {
+      e.stopPropagation();
+    }
     this.setState({
-      contentType: 0,
+      contentType: type,
+      showPanel: !!e,
     });
   }
   public render() {
@@ -65,14 +75,16 @@ class App extends React.Component {
                 {({ contentType }) => {
                   switch (contentType) {
                     case 1:
-                      return <DataTable ></DataTable>;
+                      return <DataTable ref={this.setDataTableRef}></DataTable>;
+                    case 2:
+                      return <UploadData></UploadData>;
                     default:
-                      return <TodoList ref={this.setTextInputRef}></TodoList>;
+                      return <TodoList ref={this.setTodoListRef}></TodoList>;
                   }
                 }
                 }
               </AppContext.Consumer>
-              <SettingPanel showPanel={this.state.showPanel} changeSettingPanel={this.changeSettingPanel} todolistRef={this.textInput}></SettingPanel>
+              <SettingPanel showPanel={this.state.showPanel} changeSettingPanel={this.changeSettingPanel} todolistRef={this.todoListRef} dataTableRef={this.dataTableRef}></SettingPanel>
             </Content>
             <Footer className="footer">
               Created by <a target="_blank" href="https://github.com/yhlben">yhlben</a> ©2018
