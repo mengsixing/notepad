@@ -1,8 +1,8 @@
 import { Button } from 'antd';
 import * as React from 'react';
+import { AppContext } from '../context/index';
 import { ISettingPanel } from '../interfaces/index';
 import './SettingPanel.css';
-import { AppContext } from '../context/index';
 
 class SettingPanel extends React.Component<ISettingPanel> {
     constructor(props) {
