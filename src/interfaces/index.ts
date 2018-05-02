@@ -15,5 +15,7 @@ export interface ItodoList {
 
 // 设置面板props
 export interface ISettingPanel {
-    showPanel: boolean;
+    showPanel?: boolean;
+    todolistRef?: any;
+    changeSettingPanel: () => void;
 }

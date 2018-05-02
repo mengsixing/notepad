@@ -130,14 +130,6 @@ class TodoList extends React.Component {
             </Panel>
           </Collapse>
         </Col>
-        <AppContext.Consumer>
-                {(theme) => {
-                    return (
-                        <div>{theme.showTable + 'zheshiTodolis'}</div>
-                    );
-                }
-                }
-            </AppContext.Consumer>
       </Row>
     );
   }
