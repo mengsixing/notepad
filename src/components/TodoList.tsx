@@ -159,9 +159,8 @@ class TodoList extends React.Component {
           <Collapse defaultActiveKey={['1']} className="done">
             <Panel header="done" key="1">
               <List
-                dataSource={this.state.doneList}
+                dataSource={this.state.doneList.filter((item) => !item.isStore)}
                 renderItem={(item, index) => (
-                  !item.isStore &&
                   <List.Item>
                     <Row className="full-width">
                       <Col span={20}>

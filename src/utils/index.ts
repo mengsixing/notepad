@@ -1,7 +1,7 @@
 import { ItodoItem } from '../interfaces/index';
 
 export function createDateString(date: Date): string {
-    return new Date().toLocaleDateString().replace(/\//g, '-');
+    return date.toLocaleDateString().replace(/\//g, '-');
 }
 
 export function removeItems(allArray: ItodoItem[], partArray: string[]): ItodoItem[] {

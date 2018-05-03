@@ -1,4 +1,12 @@
 .data-table{
     background-color: white;
-    margin-top: 8px;
+}
+
+.search-col{
+    margin: 8px 0;
+}
+
+.ant-btn-primary{
+    background-color: #7cbceb;
+    border-color: #7cbceb;
 }

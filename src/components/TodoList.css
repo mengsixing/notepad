@@ -63,3 +63,8 @@
 .ant-collapse-content-active{
     min-height: 85px;
 }
+
+.ant-btn-primary{
+    background-color: var(--headerColor);
+    border-color: var(--headerColor);
+}

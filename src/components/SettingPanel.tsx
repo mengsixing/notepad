@@ -24,14 +24,18 @@ class SettingPanel extends React.Component<ISettingPanel> {
         this.props.changeSettingPanel();
     }
     public confirmClear() {
-        this.props.todolistRef.setState({
-            todoList: [],
-            doingList: [],
-            doneList: [],
-        });
-        this.props.dataTableRef.setState({
-            dataSource: [],
-        });
+        if (this.props.todolistRef && this.props.todolistRef.setState) {
+            this.props.todolistRef.setState({
+                todoList: [],
+                doingList: [],
+                doneList: [],
+            });
+        }
+        if (this.props.dataTableRef && this.props.dataTableRef.setState) {
+            this.props.dataTableRef.setState({
+                dataSource: [],
+            });
+        }
         this.setState({
             showModal: false,
         });
@@ -56,7 +60,7 @@ class SettingPanel extends React.Component<ISettingPanel> {
     public render() {
         return (
             <AppContext.Consumer>
-                {({toggleContent}) => {
+                {({ toggleContent }) => {
                     return (
                         <div className={this.props.showPanel ? 'setting-panel show' : 'setting-panel'} onClick={toggleContent}>
                             <div className="setting-panel-item"><Button className="setting-panel-item_button" onClick={toggleContent.bind(this.context, 0)}>任务列表</Button></div>

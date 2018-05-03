@@ -1,9 +1,10 @@
-import { Button, Table } from 'antd';
+import { Button, Input, Table } from 'antd';
 import * as localforage from 'localforage';
 import * as React from 'react';
 import { ItodoItem, ItodoList } from '../interfaces/index';
 import { createDateString } from '../utils/index';
 import './DataTable.css';
+const { Search } = Input;
 
 interface IdataTableItem {
     key: string;
@@ -15,6 +16,7 @@ interface IdataTableItem {
 
 interface IdataTable {
     dataSource: IdataTableItem[];
+    dataSourceOrigin: IdataTableItem[];
 }
 
 const columns = [{
@@ -25,22 +27,35 @@ const columns = [{
     title: '创建时间',
     dataIndex: 'createDate',
     key: 'createDate',
+    sorter: (a, b) => Date.parse(a.createDate) - Date.parse(b.createDate),
 }, {
     title: '开始时间',
     dataIndex: 'startDate',
     key: 'startDate',
+    sorter: (a, b) => {
+        const aTime = a.startDate === '未开始' ? new Date().getTime() : Date.parse(a.startDate);
+        const bTime = b.startDate === '未开始' ? new Date().getTime() : Date.parse(b.startDate);
+        return aTime - bTime;
+    },
 }, {
     title: '完成时间',
     dataIndex: 'finishDate',
     key: 'finishDate',
+    sorter: (a, b) => {
+        const aTime = a.finishDate === '未完成' ? new Date().getTime() : Date.parse(a.finishDate);
+        const bTime = b.finishDate === '未完成' ? new Date().getTime() : Date.parse(b.finishDate);
+        return aTime - bTime;
+    },
 }];
 
 class DataTable extends React.Component<any, IdataTable> {
     public state = {
         dataSource: [],
+        dataSourceOrigin: [],
     };
-    constructor(defaultProps) {
-        super(defaultProps);
+    constructor(props) {
+        super(props);
+        this.search = this.search.bind(this);
         localforage.getItem('todolist_state').then((state?: ItodoList) => {
             let allData = [];
             if (state) {
@@ -51,19 +66,28 @@ class DataTable extends React.Component<any, IdataTable> {
                 dataSource.push({
                     key: i,
                     title: allData[i].title,
-                    createDate: createDateString(allData[i].createDate),
-                    startDate: allData[i].startDate ? createDateString(allData[i].startDate) : '未开始',
-                    finishDate: allData[i].finishDate ? createDateString(allData[i].finishDate) : '未完成',
+                    createDate: createDateString(new Date(allData[i].createDate)),
+                    startDate: allData[i].startDate ? createDateString(new Date(allData[i].startDate)) : '未开始',
+                    finishDate: allData[i].finishDate ? createDateString(new Date(allData[i].finishDate)) : '未完成',
                 });
             }
             this.setState({
                 dataSource,
+                dataSourceOrigin: dataSource,
             });
         });
     }
+    public search(key: string): void {
+        const dataSource = [...this.state.dataSourceOrigin];
+        const newData = dataSource.filter((item) => item.title.indexOf(key) >= 0);
+        this.setState({
+            dataSource: newData,
+        });
+    }
     public render() {
-        return (<div className="data-table">
-            <Table dataSource={this.state.dataSource} columns={columns} bordered />
+        return (<div>
+            <Search placeholder="筛选关键字" enterButton="搜索" onSearch={this.search} className="search-col" />
+            <Table className="data-table" dataSource={this.state.dataSource} columns={columns} bordered />
         </div>);
     }
 }
