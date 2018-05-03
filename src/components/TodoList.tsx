@@ -1,4 +1,4 @@
-import { Checkbox, Col, Collapse, Input, List, message, Row } from 'antd';
+import { Button, Checkbox, Col, Collapse, Input, List, message, Popconfirm, Row } from 'antd';
 import * as localforage from 'localforage';
 import * as React from 'react';
 import { ItodoItem, ItodoList } from '../interfaces/index';
@@ -19,6 +19,7 @@ class TodoList extends React.Component {
     todoList: [],
     doingList: [],
     doneList: [],
+    deleteList: [],
     selectedTodoList: [],
     selectedDoingList: [],
   };
@@ -28,6 +29,7 @@ class TodoList extends React.Component {
     this.addTodo = this.addTodo.bind(this);
     this.changetodoList = this.changetodoList.bind(this);
     this.changedoingList = this.changedoingList.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
     localforage.getItem('todolist_state').then((json) => {
       if (json) {
         this.setState(json);
@@ -54,6 +56,20 @@ class TodoList extends React.Component {
         selectedTodoList: [],
       });
     }
+  }
+  public deleteItem(index: number, type: string): void {
+    const list = [...this.state[type]];
+    list.splice(index, 1);
+    this.setState({
+      [type]: list,
+    });
+  }
+  public storeItem(index: number): void {
+    const list = [...this.state.doneList];
+    list[index].isStore = true;
+    this.setState({
+      doneList: list,
+    });
   }
   public changetodoList(checkedArray: string[]) {
     if (isInArray(this.state.doingList, checkedArray[0])) {
@@ -95,7 +111,17 @@ class TodoList extends React.Component {
                 <List
                   dataSource={this.state.todoList}
                   renderItem={
-                    (item) => (<List.Item><Checkbox value={item.title}>{item.title}</Checkbox></List.Item>)
+                    (item, index) => (
+                      <List.Item>
+                        <Row className="full-width">
+                          <Col span={20}><Checkbox value={item.title}>{item.title}</Checkbox></Col>
+                          <Col span={4}>
+                            <Popconfirm title="确认删除任务？" okText="确认" cancelText="取消" onConfirm={this.deleteItem.bind(this, index, 'todoList')}>
+                              <Button size="small" type="dashed" >删除</Button>
+                            </Popconfirm>
+                          </Col>
+                        </Row>
+                      </List.Item>)
                   }
                 />
               </Checkbox.Group>
@@ -109,10 +135,19 @@ class TodoList extends React.Component {
                 <List
                   dataSource={this.state.doingList}
                   renderItem={
-                    (item) => (<List.Item>
-                      <Checkbox value={item.title}>
-                        {item.title}
-                      </Checkbox>
+                    (item, index) => (<List.Item>
+                      <Row className="full-width">
+                        <Col span={20}>
+                          <Checkbox value={item.title}>
+                            {item.title}
+                          </Checkbox>
+                        </Col>
+                        <Col span={4}>
+                          <Popconfirm title="确认删除任务？" okText="确认" cancelText="取消" onConfirm={this.deleteItem.bind(this, index, 'doingList')}>
+                            <Button size="small" type="dashed" >删除</Button>
+                          </Popconfirm>
+                        </Col>
+                      </Row>
                     </List.Item>)
                   }
                 />
@@ -125,7 +160,21 @@ class TodoList extends React.Component {
             <Panel header="done" key="1">
               <List
                 dataSource={this.state.doneList}
-                renderItem={(item) => (<List.Item>{item.title}</List.Item>)}
+                renderItem={(item, index) => (
+                  !item.isStore &&
+                  <List.Item>
+                    <Row className="full-width">
+                      <Col span={20}>
+                        {item.title}
+                      </Col>
+                      <Col span={4}>
+                        <Popconfirm title="确认归档任务？" okText="确认" cancelText="取消" onConfirm={this.storeItem.bind(this, index)}>
+                          <Button size="small" type="dashed" >归档</Button>
+                        </Popconfirm>
+                      </Col>
+                    </Row>
+                  </List.Item>
+                )}
               />
             </Panel>
           </Collapse>

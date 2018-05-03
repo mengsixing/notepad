@@ -4,6 +4,8 @@ export interface ItodoItem {
     createDate: Date;
     startDate?: Date;
     finishDate?: Date;
+    deleteDate?: Date;
+    isStore?: boolean;
 }
 
 // TodoList组件state
@@ -11,6 +13,7 @@ export interface ItodoList {
     todoList: ItodoItem[];
     doingList: ItodoItem[];
     doneList: ItodoItem[];
+    deleteList: ItodoItem[];
 }
 
 // 设置面板props

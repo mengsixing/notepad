@@ -1,3 +1,4 @@
+import { Col, message, Row } from 'antd';
 import * as localforage from 'localforage';
 import * as React from 'react';
 import { AppContext } from '../context/index';
@@ -13,12 +14,13 @@ class UploadData extends React.Component {
         const files = event.target.files;
         const reader = new FileReader();
         if (files[0] && files[0].name.indexOf('notepad') !== -1) {
-            reader.onload =  (ev: any) => {
+            reader.onload = (ev: any) => {
                 localforage.setItem('todolist_state', JSON.parse(ev.target.result));
+                message.success('上传成功');
             };
             reader.readAsText(files[0]);
         } else {
-            alert('上传失败');
+            message.error('上传失败');
         }
     }
     public render() {
@@ -27,7 +29,9 @@ class UploadData extends React.Component {
                 {({ toggleContent }) => {
                     return (
                         <div className="upload-container">
-                            <input type="file" onChange={this.upload.bind(this)} />
+                            <Row>
+                                <Col span={12} offset={6}><input id="file" type="file" onChange={this.upload.bind(this)} /></Col>
+                            </Row>
                         </div>
                     );
                 }

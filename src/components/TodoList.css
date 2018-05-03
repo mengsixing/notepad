@@ -50,6 +50,9 @@
     }
 }
 
+.full-width {
+    width: 100%;
+}
 
 .search-col{
     margin: 8px 0;

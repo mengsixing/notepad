@@ -41,13 +41,16 @@ class App extends React.Component {
   public toggleContent(type, e) {
     if (arguments.length === 1) {
       type.stopPropagation();
+      this.setState({
+        showPanel: !!e,
+      });
     } else {
       e.stopPropagation();
+      this.setState({
+        contentType: type,
+        showPanel: !!e,
+      });
     }
-    this.setState({
-      contentType: type,
-      showPanel: !!e,
-    });
   }
   public render() {
     return (
