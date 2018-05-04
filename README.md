@@ -54,7 +54,6 @@ The MIT License.
     <td>
       yhlben<br />
       <a href="mailto:yinhengliben@gmail.com">yinhengliben@gmail.com</a><br />
-      <a href="http://wojtekmaj.pl">http://wojtekmaj.pl</a>
     </td>
   </tr>
 </table>
