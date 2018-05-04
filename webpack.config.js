@@ -1,15 +1,18 @@
 const path = require('path');
-const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const tsImportPluginFactory = require('ts-import-plugin')
 
+
+const isProd =  process.env.NODE_ENV == 'production';
+
+
 module.exports = {
-  mode: "production",
+  mode: process.env.NODE_ENV,
 
   entry: "./src/index",
 
   output: {
-    // publicPath:'http://p872n14z4.bkt.clouddn.com/',
+    publicPath: isProd ? 'http://p872n14z4.bkt.clouddn.com/' : '',
     path: path.resolve(__dirname, "dist"),
     filename: "[name]-[hash:8].js"
   },
@@ -43,16 +46,17 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'index.html'
     }),
-    new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
     hot: true,
     inline: true
   },
+
   optimization: {
-		runtimeChunk: true,
+		runtimeChunk: false,
 		splitChunks: {
-			chunks:'all'
+      chunks: "all",
+      minSize: 30000,
 		},
 	}
 };

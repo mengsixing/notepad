@@ -6,18 +6,19 @@
   "scripts": {
     "precommit": "yarn run fix",
     "prebuild": "yarn run lint",
-    "build": "webpack",
+    "build": "cross-env NODE_ENV=production webpack --progress",
     "lint": "tslint --project .",
     "fix": "tslint --project . --fix",
-    "start": "webpack-dev-server --open"
+    "start": "cross-env NODE_ENV=development webpack-dev-server --progress --open"
   },
   "keywords": [],
-  "author": "",
+  "author": "yhlben",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.1.4",
     "css-loader": "^0.28.11",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^0.14.3",

@@ -13,6 +13,7 @@
     width: 100%;
     max-width: 980px;
     padding: 0 10px;
+    padding-top: 70px;
     margin: auto;
     padding-bottom: 70px;
 }
@@ -20,10 +21,13 @@
 .header,.footer{
     color: var(--bodyColor);
     background-color: var(--headerColor);
+    z-index: 3;
 }
 
 .header{
     line-height: 70px;
+    position: fixed;
+    width: 100%;
     & .logo {
         line-height: 38px;
         margin: 16px 0;
