@@ -4,22 +4,23 @@ import * as React from 'react';
 import { AppContext } from '../context/index';
 import { ISettingPanel } from '../interfaces/index';
 import './SettingPanel.css';
+const confirm = Modal.confirm;
 
 class SettingPanel extends React.Component<ISettingPanel> {
-    public state = {
-        showModal: false,
-    };
     constructor(props) {
         super(props);
         this.clearData = this.clearData.bind(this);
         this.confirmClear = this.confirmClear.bind(this);
-        this.cancelClear = this.cancelClear.bind(this);
         this.downloadData = this.downloadData.bind(this);
     }
     public clearData(event) {
         event.preventDefault();
-        this.setState({
-            showModal: true,
+        confirm({
+            title: '确认清空数据？',
+            content: '清楚后无法恢复',
+            cancelText: '取消',
+            okText: '确认',
+            onOk: this.confirmClear,
         });
         this.props.changeSettingPanel();
     }
@@ -36,14 +37,6 @@ class SettingPanel extends React.Component<ISettingPanel> {
                 dataSource: [],
             });
         }
-        this.setState({
-            showModal: false,
-        });
-    }
-    public cancelClear() {
-        this.setState({
-            showModal: false,
-        });
     }
     public downloadData() {
         const aTag = document.createElement('a');
@@ -56,7 +49,6 @@ class SettingPanel extends React.Component<ISettingPanel> {
             this.props.changeSettingPanel();
         });
     }
-
     public render() {
         return (
             <AppContext.Consumer>
@@ -68,14 +60,6 @@ class SettingPanel extends React.Component<ISettingPanel> {
                             <div className="setting-panel-item"><Button className="setting-panel-item_button" onClick={this.downloadData}>下载数据</Button></div>
                             <div className="setting-panel-item"><Button className="setting-panel-item_button" onClick={toggleContent.bind(this.context, 2)}>导入数据</Button></div>
                             <div className="setting-panel-item"><Button className="setting-panel-item_button" onClick={this.clearData}>清空数据</Button></div>
-                            <Modal
-                                title="提示"
-                                visible={this.state.showModal}
-                                onOk={this.confirmClear}
-                                onCancel={this.cancelClear}
-                            >
-                                <p>确认清空数据？</p>
-                            </Modal>
                         </div>
                     );
                 }
