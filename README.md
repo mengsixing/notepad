@@ -23,9 +23,6 @@
 * webpack
 * tslint
 
-## License
-
-The MIT License.
 
 ## 作者
 
