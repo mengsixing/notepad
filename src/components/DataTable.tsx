@@ -87,7 +87,7 @@ class DataTable extends React.Component<any, IdataTable> {
     public render() {
         return (<div>
             <Search placeholder="筛选关键字" enterButton="搜索" onSearch={this.search} className="search-col" />
-            <Table className="data-table" dataSource={this.state.dataSource} columns={columns} bordered pagination={{defaultPageSize: 5}} />
+            <Table className="data-table" dataSource={this.state.dataSource} columns={columns} bordered pagination={{defaultPageSize: 6}} />
         </div>);
     }
 }

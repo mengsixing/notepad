@@ -2,9 +2,15 @@ import { Button, Modal } from 'antd';
 import * as localforage from 'localforage';
 import * as React from 'react';
 import { AppContext } from '../context/index';
-import { ISettingPanel } from '../interfaces/index';
 import './SettingPanel.css';
 const confirm = Modal.confirm;
+
+interface ISettingPanel {
+    showPanel: boolean;
+    todolistRef: any;
+    dataTableRef: any;
+    changeSettingPanel: () => void;
+}
 
 class SettingPanel extends React.Component<ISettingPanel> {
     constructor(props) {
@@ -17,7 +23,7 @@ class SettingPanel extends React.Component<ISettingPanel> {
         event.preventDefault();
         confirm({
             title: '确认清空数据？',
-            content: '清楚后无法恢复',
+            content: '清空后无法恢复',
             cancelText: '取消',
             okText: '确认',
             onOk: this.confirmClear,

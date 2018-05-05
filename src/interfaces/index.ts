@@ -15,11 +15,3 @@ export interface ItodoList {
     doneList: ItodoItem[];
     deleteList: ItodoItem[];
 }
-
-// 设置面板props
-export interface ISettingPanel {
-    showPanel: boolean;
-    todolistRef: any;
-    dataTableRef: any;
-    changeSettingPanel: () => void;
-}

@@ -12,7 +12,7 @@ module.exports = {
   entry: "./src/index",
 
   output: {
-    publicPath: isProd ? 'http://p872n14z4.bkt.clouddn.com/' : '',
+    // publicPath: isProd ? 'http://p872n14z4.bkt.clouddn.com/' : '',
     path: path.resolve(__dirname, "dist"),
     filename: "[name]-[hash:8].js"
   },
@@ -48,7 +48,6 @@ module.exports = {
     }),
   ],
   devServer: {
-    hot: true,
     inline: true
   },
 

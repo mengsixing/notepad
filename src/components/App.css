@@ -1,10 +1,4 @@
-:root {
-    --headerColor:#7cbceb;
-    --bodyColor:#F5F5F5;
-    --todoColor:#1790ff;
-    --doingColor:#faad15;
-    --doneColor:#52c41a;
-}
+@import url("Common.css");
 
 .main,body{
     background-color: var(--bodyColor);

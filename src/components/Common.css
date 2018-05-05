@@ -1,0 +1,12 @@
+:root {
+    --headerColor:#7cbceb;
+    --bodyColor:#F5F5F5;
+    --todoColor:#1790ff;
+    --doingColor:#faad15;
+    --doneColor:#52c41a;
+}
+
+.ant-btn-primary{
+    background-color: var(--headerColor);
+    border-color: var(--headerColor);
+}
