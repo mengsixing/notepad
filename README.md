@@ -8,6 +8,15 @@
 
 [Online demo](http://yinhengli.com:8083)
 
+## 安装
+
+```
+git clone https://github.com/yhlben/notepad.git
+yarn
+yarn start
+
+```
+
 ## 特点
 * IndexDB本地存储
 * 导入导出txt文件
