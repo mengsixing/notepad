@@ -31,7 +31,9 @@ yarn start
 - antd-design
 - localForage
 
-## 构建工具
+## 项目搭建
 
 - webpack
 - tslint
+- stylelint
+- jest
