@@ -1,60 +1,62 @@
 @import url("Common.css");
 
-.main,body{
-    background-color: var(--bodyColor);
-}
-.container{
-    width: 100%;
-    max-width: 980px;
-    padding: 0 10px;
-    padding-top: 70px;
-    margin: auto;
-    padding-bottom: 70px;
+.main,
+body {
+  background-color: var(--bodyColor);
 }
 
-.header,.footer{
+.container {
+  width: 100%;
+  max-width: 980px;
+  padding: 0 10px;
+  padding-top: 70px;
+  margin: auto;
+  padding-bottom: 70px;
+}
+
+.header,
+.footer {
+  color: var(--bodyColor);
+  background-color: var(--headerColor);
+  z-index: 3;
+}
+
+.header {
+  line-height: 70px;
+  position: fixed;
+  width: 100%;
+
+  & .logo {
+    line-height: 38px;
+    margin: 16px 0;
+    float: right;
+    text-align: right;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  & .setting {
+    float: right;
+    line-height: 38px;
+    font-size: 20px;
+    margin: 16px 24px;
+    cursor: pointer;
+  }
+}
+
+.footer {
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  bottom: 0;
+  text-align: center;
+
+  & a {
     color: var(--bodyColor);
-    background-color: var(--headerColor);
-    z-index: 3;
+    text-decoration: underline;
+  }
 }
 
-.header{
-    line-height: 70px;
-    position: fixed;
-    width: 100%;
-    & .logo {
-        line-height: 38px;
-        margin: 16px 0;
-        float: right;
-        text-align: right;
-        cursor: pointer;
-        font-size: 20px;
-    }
-
-    & .setting {
-        float: right;
-        line-height: 38px;
-        font-size: 20px;
-        margin: 16px 24px;
-        cursor: pointer;
-    }
+.ant-layout-header {
+  padding: 0 10px;
 }
-
-.footer{
-    position: fixed;
-    width: 100%;
-    height: 70px;
-    bottom: 0;
-    text-align: center;
-    & a{
-        color: var(--bodyColor);
-        text-decoration: underline;
-    }
-}
-
-
-.ant-layout-header{
-    padding: 0 10px;
-}
-
-

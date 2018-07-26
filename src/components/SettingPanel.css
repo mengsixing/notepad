@@ -1,28 +1,32 @@
 @import url("Common.css");
 
-.setting-panel{
-    position: fixed;
-    left: 0;
-    top: 70px;
-    bottom:70px;
-    z-index:1;
-    width: 200px;
-    background-color: rgba(0, 0, 0, 0.5);
-    transform: translateX(-250px);
-    transition: transform .3s;
-    &.show{
-        transform: translateX(0);
+.setting-panel {
+  position: fixed;
+  left: 0;
+  top: 70px;
+  bottom: 70px;
+  z-index: 1;
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: translateX(-250px);
+  transition: transform 0.3s;
+
+  &.show {
+    transform: translateX(0);
+  }
+
+  & > .setting-panel-item {
+    text-align: center;
+    margin-top: 20px;
+
+    &:first-child {
+      margin-top: 50px;
     }
-    &>.setting-panel-item{
-        text-align:center;
-        margin-top:20px;
-        &:first-child{
-            margin-top:50px;
-        }
-        &>.setting-panel-item_button{
-            background-color: var(--headerColor);
-            color:var(--bodyColor);
-            border:none;
-        }
+
+    & > .setting-panel-item_button {
+      background-color: var(--headerColor);
+      color: var(--bodyColor);
+      border: none;
     }
+  }
 }

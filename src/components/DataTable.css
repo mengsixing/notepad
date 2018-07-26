@@ -1,8 +1,9 @@
 @import url("Common.css");
-.data-table{
-    background-color: white;
+
+.data-table {
+  background-color: white;
 }
 
-.search-col{
-    margin: 8px 0;
+.search-col {
+  margin: 8px 0;
 }
