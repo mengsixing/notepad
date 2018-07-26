@@ -19,6 +19,12 @@ interface IdataTable {
     dataSourceOrigin: IdataTableItem[];
 }
 
+const sortDateDesc = (a, b): number => {
+    const aTime = a.startDate === '未开始' ? new Date().getTime() : Date.parse(a.startDate);
+    const bTime = b.startDate === '未开始' ? new Date().getTime() : Date.parse(b.startDate);
+    return aTime - bTime;
+};
+
 const columns = [{
     title: '任务名称',
     dataIndex: 'title',
@@ -32,20 +38,12 @@ const columns = [{
     title: '开始时间',
     dataIndex: 'startDate',
     key: 'startDate',
-    sorter: (a, b) => {
-        const aTime = a.startDate === '未开始' ? new Date().getTime() : Date.parse(a.startDate);
-        const bTime = b.startDate === '未开始' ? new Date().getTime() : Date.parse(b.startDate);
-        return aTime - bTime;
-    },
+    sorter: sortDateDesc,
 }, {
     title: '完成时间',
     dataIndex: 'finishDate',
     key: 'finishDate',
-    sorter: (a, b) => {
-        const aTime = a.finishDate === '未完成' ? new Date().getTime() : Date.parse(a.finishDate);
-        const bTime = b.finishDate === '未完成' ? new Date().getTime() : Date.parse(b.finishDate);
-        return aTime - bTime;
-    },
+    sorter: sortDateDesc,
 }];
 
 class DataTable extends React.Component<any, IdataTable> {

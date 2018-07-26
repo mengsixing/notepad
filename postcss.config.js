@@ -1,6 +1,8 @@
-
+var postcssPresetEnv = require("postcss-preset-env");
 module.exports = {
     plugins: [
-        require("postcss-cssnext")
+        postcssPresetEnv({
+            stage: 0
+        })
     ]
-}
+};
