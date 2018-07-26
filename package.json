@@ -9,22 +9,32 @@
     "build": "cross-env NODE_ENV=production webpack --progress",
     "lint": "tslint --project .",
     "fix": "tslint --project . --fix",
-    "start": "cross-env NODE_ENV=development webpack-dev-server --progress --open"
+    "start": "cross-env NODE_ENV=development webpack-dev-server --progress --open",
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts?$": "ts-jest"
+    }
   },
   "keywords": [],
   "author": "yhlben",
   "license": "ISC",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
+    "@types/jest": "^23.3.0",
+    "babel-cli": "^7.0.0-beta.3",
     "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "cross-env": "^5.1.4",
     "css-loader": "^0.28.11",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^0.14.3",
+    "jest": "^23.4.1",
     "postcss-preset-env": "^5.3.0",
     "style-loader": "^0.21.0",
     "ts-import-plugin": "^1.4.4",
+    "ts-jest": "^23.0.1",
     "ts-loader": "^4.2.0",
     "tslint": "^5.9.1",
     "typescript": "^2.8.1",

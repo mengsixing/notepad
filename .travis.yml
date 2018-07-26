@@ -6,4 +6,7 @@ branches:
   only:
     - master
 script:
+    - yarn run test
     - yarn run build
+after_script:
+  - npx codecov

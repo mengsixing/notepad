@@ -11,11 +11,5 @@ export function removeItems(allArray: ItodoItem[], partArray: string[]): ItodoIt
 }
 
 export function isInArray(array: ItodoItem[], text: string): boolean {
-    let result = false;
-    array.forEach((item) => {
-        if (item.title === text) {
-            result = true;
-        }
-    });
-    return result;
+    return array.some((item) => item.title === text);
 }
