@@ -1,9 +1,7 @@
-import { Button, Checkbox, Col, Collapse, Icon, Input, Layout, List, Row } from 'antd';
+import { Col, Collapse, Icon, Input, Layout, Row } from 'antd';
 import * as React from 'react';
 import './App.css';
-const { Search } = Input;
-const { Panel } = Collapse;
-const { Header, Content, Footer } = Layout;
+const { Content, Footer } = Layout;
 import DataTable from './DataTable';
 import SettingPanel from './SettingPanel';
 import TodoList from './TodoList';

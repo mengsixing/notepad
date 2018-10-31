@@ -1,7 +1,7 @@
-import { Button, Input, Table } from 'antd';
+import { Input, Table } from 'antd';
 import * as localforage from 'localforage';
 import * as React from 'react';
-import { ItodoItem, ItodoList } from '../interfaces/index';
+import { ItodoList } from '../interfaces/index';
 import { createDateString } from '../utils/index';
 import './DataTable.css';
 const { Search } = Input;

@@ -2,10 +2,9 @@ import { Button, Checkbox, Col, Collapse, Input, List, message, Popconfirm, Row 
 import * as localforage from 'localforage';
 import * as React from 'react';
 import { ItodoItem, ItodoList } from '../interfaces/index';
-import { createDateString, isInArray, removeItems } from '../utils/index';
+import { isInArray, removeItems } from '../utils/index';
 const { Search } = Input;
 const { Panel } = Collapse;
-import { AppContext } from '../context/index';
 import './TodoList.css';
 
 // TodoList组件state
