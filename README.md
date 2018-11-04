@@ -37,3 +37,7 @@ yarn start
 - tslint
 - stylelint
 - jest
+
+---
+
+ps: 此项目主要是用于 typescript 学习，如有更好的想法，或者建议，欢迎提 issue，谢谢！

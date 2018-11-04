@@ -1,13 +1,12 @@
 import { Col, Collapse, Icon, Input, Layout, Row } from 'antd';
 import * as React from 'react';
+import { AppContext } from '../context/index';
 import './App.css';
-const { Content, Footer } = Layout;
 import DataTable from './DataTable';
 import SettingPanel from './SettingPanel';
 import TodoList from './TodoList';
 import UploadData from './UploadData';
-
-import { AppContext } from '../context/index';
+const { Content, Footer } = Layout;
 
 class App extends React.Component {
   public dataTableRef = React.createRef();
@@ -28,15 +27,15 @@ class App extends React.Component {
   public setTodoListRef = (element) => {
     this.todoListRef = element;
   }
-  public gotoGithub() {
+  public gotoGithub(): void {
     location.href = 'https://github.com/yhlben/notepad';
   }
-  public changeSettingPanel() {
+  public changeSettingPanel(): void  {
     this.setState({
       showPanel: !this.state.showPanel,
     });
   }
-  public toggleContent(type, e) {
+  public toggleContent(type, e): void  {
     if (arguments.length === 1) {
       type.stopPropagation();
       this.setState({

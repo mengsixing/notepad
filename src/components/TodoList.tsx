@@ -35,7 +35,7 @@ class TodoList extends React.Component {
       }
     });
   }
-  public componentDidUpdate() {
+  public componentDidUpdate(): void {
     const json = { todoList: this.state.todoList, doingList: this.state.doingList, doneList: this.state.doneList };
     localforage.setItem('todolist_state', json);
   }
@@ -70,7 +70,7 @@ class TodoList extends React.Component {
       doneList: list,
     });
   }
-  public changetodoList(checkedArray: string[]) {
+  public changetodoList(checkedArray: string[]): void {
     if (isInArray(this.state.doingList, checkedArray[0])) {
       message.warn('该任务已在进行中');
       this.setState({

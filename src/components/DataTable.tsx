@@ -19,7 +19,7 @@ interface IdataTable {
     dataSourceOrigin: IdataTableItem[];
 }
 
-const sortDateDesc = (a, b): number => {
+const sortDateDesc = (a: IdataTableItem, b: IdataTableItem): number => {
     const aTime = a.startDate === '未开始' ? new Date().getTime() : Date.parse(a.startDate);
     const bTime = b.startDate === '未开始' ? new Date().getTime() : Date.parse(b.startDate);
     return aTime - bTime;

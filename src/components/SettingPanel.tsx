@@ -19,7 +19,7 @@ class SettingPanel extends React.Component<ISettingPanel> {
         this.confirmClear = this.confirmClear.bind(this);
         this.downloadData = this.downloadData.bind(this);
     }
-    public clearData(event) {
+    public clearData(event): void {
         event.preventDefault();
         confirm({
             title: '确认清空数据？',
@@ -30,7 +30,7 @@ class SettingPanel extends React.Component<ISettingPanel> {
         });
         this.props.changeSettingPanel();
     }
-    public confirmClear() {
+    public confirmClear(): void {
         if (this.props.todolistRef && this.props.todolistRef.setState) {
             this.props.todolistRef.setState({
                 todoList: [],
@@ -44,7 +44,7 @@ class SettingPanel extends React.Component<ISettingPanel> {
             });
         }
     }
-    public downloadData() {
+    public downloadData(): void {
         const aTag = document.createElement('a');
         localforage.getItem('todolist_state').then((res) => {
             const blob = new Blob([JSON.stringify(res)]);
