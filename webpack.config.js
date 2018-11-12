@@ -1,7 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const tsImportPluginFactory = require("ts-import-plugin");
-const postcssPresetEnv = require("postcss-preset-env");
 
 const isProd = process.env.NODE_ENV == "production";
 
@@ -12,7 +11,7 @@ module.exports = {
 
     output: {
         // publicPath: isProd ? 'http://p872n14z4.bkt.clouddn.com/' : '',
-        path: path.resolve(__dirname, "dist"),
+        path: path.resolve(__dirname, "deploy/dist"),
         filename: "[name]-[hash:8].js"
     },
     module: {
