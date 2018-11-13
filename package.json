@@ -11,7 +11,8 @@
     "fix": "tslint --project . --fix && stylelint src/components/*.css --fix",
     "start": "cross-env NODE_ENV=development webpack-dev-server --progress --open",
     "test": "jest --coverage",
-    "docker": "npm run build && sh ./docker/createImage.sh"
+    "docker": "npm run build && sh ./docker/createImage.sh",
+    "commitmsg": "commitlint -E GIT_PARAMS"
   },
   "keywords": [
     "notepad"
@@ -19,12 +20,15 @@
   "author": "yhlben",
   "license": "MIT",
   "devDependencies": {
+    "@commitlint/cli": "^7.2.1",
+    "@commitlint/config-conventional": "^7.1.2",
     "@types/jest": "^23.3.0",
     "babel-cli": "^7.0.0-beta.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^1.0.0",
+    "commitlint": "^7.2.1",
     "cross-env": "^5.1.4",
     "css-loader": "^0.28.11",
     "html-webpack-plugin": "^3.2.0",

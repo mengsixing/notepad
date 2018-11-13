@@ -7,11 +7,11 @@
 
 ## 在线预览
 
-[Online demo](http://yinhengli.com:8083)
+[Online demo](http://47.107.177.146:8083)
 
 ## 安装
 
-``` shell
+```shell
 git clone https://github.com/yhlben/notepad.git
 cd notepad
 yarn
@@ -20,7 +20,7 @@ yarn start
 
 ## 特点
 
-- IndexDB 本地存储
+- indexDB 本地存储
 - 导入导出 txt 文件
 - pc 端，手机端适配
 
@@ -36,6 +36,7 @@ yarn start
 - webpack
 - tslint
 - stylelint
+- commitlint
 - jest
 - docker
 
