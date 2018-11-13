@@ -1,12 +1,20 @@
 sudo: required
 language: node_js
+services:
+  - docker
 node_js:
-  - "10"
+  - '10'
 branches:
   only:
     - master
-script:
-    - yarn run test
-    - yarn run build
-after_script:
-  - npx codecov
+jobs:
+  include:
+    - stage: test
+      script: yarn run test
+    - stage: build
+      script: yarn run build
+      after_script: npx codecov
+    - stage: deploy
+      script:
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - yarn run docker
