@@ -1,6 +1,6 @@
 {
   "name": "notepad",
-  "version": "1.2.2",
+  "version": "1.3.2",
   "description": "一个记事本",
   "main": "index.js",
   "scripts": {
@@ -10,9 +10,12 @@
     "lint": "tslint --project . && stylelint src/components/*.css",
     "fix": "tslint --project . --fix && stylelint src/components/*.css --fix",
     "start": "cross-env NODE_ENV=development webpack-dev-server --progress --open",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "docker": "npm run build && sh ./docker/createImage.sh"
   },
-  "keywords": [],
+  "keywords": [
+    "notepad"
+  ],
   "author": "yhlben",
   "license": "MIT",
   "devDependencies": {
@@ -21,6 +24,7 @@
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^1.0.0",
     "cross-env": "^5.1.4",
     "css-loader": "^0.28.11",
     "html-webpack-plugin": "^3.2.0",

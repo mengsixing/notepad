@@ -37,6 +37,7 @@ yarn start
 - tslint
 - stylelint
 - jest
+- docker
 
 ---
 

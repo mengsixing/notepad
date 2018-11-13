@@ -1,4 +1,4 @@
-import { Col, Collapse, Icon, Input, Layout, Row } from 'antd';
+import { Col, Icon, Layout, Row } from 'antd';
 import * as React from 'react';
 import { AppContext } from '../context/index';
 import './App.css';
@@ -6,6 +6,7 @@ import DataTable from './DataTable';
 import SettingPanel from './SettingPanel';
 import TodoList from './TodoList';
 import UploadData from './UploadData';
+
 const { Content, Footer } = Layout;
 
 class App extends React.Component {
@@ -30,12 +31,12 @@ class App extends React.Component {
   public gotoGithub(): void {
     location.href = 'https://github.com/yhlben/notepad';
   }
-  public changeSettingPanel(): void  {
+  public changeSettingPanel(): void {
     this.setState({
       showPanel: !this.state.showPanel,
     });
   }
-  public toggleContent(type, e): void  {
+  public toggleContent(type, e): void {
     if (arguments.length === 1) {
       type.stopPropagation();
       this.setState({
@@ -60,13 +61,17 @@ class App extends React.Component {
                 sm={{ span: 22, offset: 1 }}
                 md={{ span: 22, offset: 1 }}
                 lg={{ span: 20, offset: 2 }}
-                xl={{ span: 20, offset: 2 }}>
+                xl={{ span: 20, offset: 2 }}
+              >
                 记事本
-              <div className="logo">
+                <div className="logo">
                   <Icon type="github" onClick={this.gotoGithub} />
                 </div>
                 <div className="setting">
-                  <Icon type={this.state.showPanel ? 'menu-unfold' : 'menu-fold'} onClick={this.changeSettingPanel} />
+                  <Icon
+                    type={this.state.showPanel ? 'menu-unfold' : 'menu-fold'}
+                    onClick={this.changeSettingPanel}
+                  />
                 </div>
               </Col>
             </Row>
@@ -75,20 +80,28 @@ class App extends React.Component {
                 {({ contentType }) => {
                   switch (contentType) {
                     case 1:
-                      return <DataTable ref={this.setDataTableRef}></DataTable>;
+                      return <DataTable ref={this.setDataTableRef} />;
                     case 2:
-                      return <UploadData></UploadData>;
+                      return <UploadData />;
                     default:
-                      return <TodoList ref={this.setTodoListRef}></TodoList>;
+                      return <TodoList ref={this.setTodoListRef} />;
                   }
-                }
-                }
+                }}
               </AppContext.Consumer>
-              <SettingPanel showPanel={this.state.showPanel} changeSettingPanel={this.changeSettingPanel} todolistRef={this.todoListRef} dataTableRef={this.dataTableRef}></SettingPanel>
+              <SettingPanel
+                showPanel={this.state.showPanel}
+                changeSettingPanel={this.changeSettingPanel}
+                todolistRef={this.todoListRef}
+                dataTableRef={this.dataTableRef}
+              />
             </Content>
             <Footer className="footer">
-              Created by <a target="_blank" href="https://github.com/yhlben">yhlben</a> ©2018
-        </Footer>
+              Created by{' '}
+              <a target="_blank" href="https://github.com/yhlben">
+                yhlben
+              </a>{' '}
+              ©2018
+            </Footer>
           </Layout>
         </div>
       </AppContext.Provider>
