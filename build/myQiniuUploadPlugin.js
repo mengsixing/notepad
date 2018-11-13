@@ -31,7 +31,6 @@ class MyQiniuUploadPlugin {
     compiler.hooks.done.tapAsync('MyQiniuUploadPlugin', (data, callback) => {
       console.log('开始上传文件到七牛云...');
       Object.keys(data.compilation.assets).forEach(file => {
-        console.log('答应了', file);
         if (/.js$/.test(file)) {
           this.uploadFile(file);
         }
@@ -41,7 +40,6 @@ class MyQiniuUploadPlugin {
   }
   uploadFile(filename) {
     var key = filename;
-    console.log('这里打印absolutepath:', this.absolutePath);
     var localFile = path.join(this.absolutePath, filename);
     // 文件上传
     this.formUploader.putFile(
