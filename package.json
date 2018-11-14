@@ -11,7 +11,7 @@
     "fix": "tslint --project . --fix && stylelint src/components/*.css --fix",
     "start": "cross-env NODE_ENV=development webpack-dev-server --progress --open",
     "test": "jest --coverage",
-    "docker": "npm run build && sh ./docker/createImage.sh",
+    "docker": "npm run build && sh ./createDockerImage.sh",
     "commitmsg": "commitlint -E GIT_PARAMS"
   },
   "keywords": [
