@@ -2,13 +2,13 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const tsImportPluginFactory = require('ts-import-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const MyQiniuUploadPlugin = require('./myQiniuUploadPlugin');
+const QiniuUploadPlugin = require('qiniu-upload-plugin');
+const qiniuConfig = require('./qiniu.config');
 
 module.exports = {
   mode: 'production',
   entry: './src/index',
   output: {
-    publicPath: 'http://pi33luk08.bkt.clouddn.com',
     path: path.resolve('./dist'),
     filename: 'notepad-[name]-[hash:8].js'
   },
@@ -46,7 +46,7 @@ module.exports = {
       template: './index.html'
     }),
     new CleanWebpackPlugin('../dist'),
-    new MyQiniuUploadPlugin()
+    new QiniuUploadPlugin(qiniuConfig)
   ],
   optimization: {
     splitChunks: {
