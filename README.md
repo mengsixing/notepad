@@ -1,9 +1,9 @@
 # notepad
 
-一个记事本。
-
 [![Build Status](https://www.travis-ci.org/yhlben/notepad.svg?branch=master)](https://www.travis-ci.org/yhlben/notepad)
 [![codecov](https://codecov.io/gh/yhlben/notepad/branch/master/graph/badge.svg)](https://codecov.io/gh/yhlben/notepad)
+
+> 一个本地记事本。
 
 ## 在线预览
 
