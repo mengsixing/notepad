@@ -7559,10 +7559,10 @@ q@^1.1.2, q@^1.5.1:
   version "1.5.1"
   resolved "https://registry.npmjs.org/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
 
-qiniu-upload-plugin@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/qiniu-upload-plugin/-/qiniu-upload-plugin-1.0.0.tgz#e86533120f3969b4638764fb2ad5a2a13bcf7a75"
-  integrity sha512-T6MwjTBXgjdQHhJWvRUS5/gzzj0vACOmHvRUtejqKndnkVaHjmW/3nfQjXiOCy+o2HQ8xtFJNhyRxy2J0xg21g==
+qiniu-upload-plugin@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.npmjs.org/qiniu-upload-plugin/-/qiniu-upload-plugin-1.1.4.tgz#9f91953ab0bba5dc628334acb77f8bf4378fdc12"
+  integrity sha512-H/o32rFYrAkbzIvlyfJT6HFa+TpGP+1ub0OscsJ7CUMMPaR9Pfxpc7BvkBoeshGgi/3udP65Vno1aBWU/ADCaQ==
   dependencies:
     ora "^3.0.0"
     qiniu "^7.2.1"

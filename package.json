@@ -37,7 +37,7 @@
     "ora": "^3.0.0",
     "postcss-preset-env": "^5.3.0",
     "qiniu": "^7.2.1",
-    "qiniu-upload-plugin": "^1.0.0",
+    "qiniu-upload-plugin": "^1.1.4",
     "style-loader": "^0.21.0",
     "stylelint": "^9.4.0",
     "stylelint-config-recommended": "^2.1.0",
