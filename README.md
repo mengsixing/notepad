@@ -1,7 +1,7 @@
 # notepad
 
 [![Build Status](https://www.travis-ci.org/yhlben/notepad.svg?branch=master)](https://www.travis-ci.org/yhlben/notepad)
-[![codecov](https://codecov.io/gh/yhlben/notepad/branch/master/graph/badge.svg)](https://codecov.io/gh/yhlben/notepad)
+[![codecov](https://codecov.io/gh/yhlben/notepad/branch/master/graph/badge.svg)](https://codecov.io/gh/yhlben/notepad) [![Greenkeeper badge](https://badges.greenkeeper.io/yhlben/notepad.svg)](https://greenkeeper.io/)
 
 > 一个本地记事本。
 
