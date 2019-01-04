@@ -4,7 +4,6 @@
   "description": "一个记事本",
   "main": "index.js",
   "scripts": {
-    "precommit": "yarn run fix",
     "prebuild": "yarn run lint",
     "build": "cross-env NODE_ENV=production webpack --progress",
     "lint": "tslint --project . && stylelint src/components/*.css",
@@ -60,6 +59,7 @@
   },
   "husky": {
     "hooks": {
+      "pre-commit": "yarn run fix",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
