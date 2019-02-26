@@ -13,8 +13,8 @@ interface ItodoState extends ItodoList {
   selectedDoingList: string[];
 }
 
-class TodoList extends React.Component {
-  public state: ItodoState = {
+class TodoList extends React.Component<any, ItodoState> {
+  public state = {
     todoList: [],
     doingList: [],
     doneList: [],

@@ -16,7 +16,7 @@
 git clone https://github.com/yhlben/notepad.git
 cd notepad
 yarn
-yarn start
+yarn dev
 ```
 
 ## 特点

@@ -8,8 +8,14 @@ import TodoList from './TodoList';
 import UploadData from './UploadData';
 
 const { Content, Footer } = Layout;
+interface IAppState {
+  showPanel: boolean;
+  showTable: boolean;
+  contentType: number;
+  toggleContent: () => void;
+}
 
-class App extends React.Component {
+class App extends React.Component<any, IAppState> {
   public dataTableRef = React.createRef();
   public todoListRef = React.createRef();
   public state = {
