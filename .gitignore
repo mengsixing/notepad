@@ -5,3 +5,4 @@ docker/dist
 coverage
 yarn-error.log
 yarn.lock
+stat.json

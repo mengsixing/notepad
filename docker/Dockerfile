@@ -1,5 +1,5 @@
 
-FROM node
+FROM mhart/alpine-node
 COPY . /app
 WORKDIR /app
 RUN npm init -y

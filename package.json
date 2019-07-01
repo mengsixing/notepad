@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prebuild": "yarn run lint",
-    "build": "cross-env NODE_ENV=production webpack --progress",
+    "build": "cross-env NODE_ENV=production webpack --progress --profile --json > stat.json",
     "lint": "tslint --project . && stylelint src/components/*.css",
     "fix": "tslint --project . --fix && stylelint src/components/*.css --fix",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --progress --open",
