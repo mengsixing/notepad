@@ -55,7 +55,7 @@
     "localforage": "^1.7.1",
     "postcss-loader": "^3.0.0",
     "react": "^16.11.0",
-    "react-dom": "^16.3.2"
+    "react-dom": "^16.11.0"
   },
   "husky": {
     "hooks": {
