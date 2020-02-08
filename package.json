@@ -36,7 +36,7 @@
     "qiniu": "^7.2.1",
     "qiniu-upload-plugin": "^1.1.4",
     "style-loader": "^0.23.1",
-    "stylelint": "^9.4.0",
+    "stylelint": "^13.1.0",
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-config-standard": "^18.2.0",
     "ts-import-plugin": "^1.4.4",
