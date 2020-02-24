@@ -51,7 +51,7 @@
   "dependencies": {
     "@types/react": "^16.3.11",
     "@types/react-dom": "^16.0.5",
-    "antd": "^3.4.1",
+    "antd": "^3.26.12",
     "localforage": "^1.7.1",
     "postcss-loader": "^3.0.0",
     "react": "^16.3.2",
